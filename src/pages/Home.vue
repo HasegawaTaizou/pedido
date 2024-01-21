@@ -20,38 +20,112 @@
       </button>
     </div>
   </main>
-  <div v-if="showDialogConfirm" class="dialog">
-    <div class="dialog__content">
-      <h2 class="dialog__title">Eba!!!</h2>
-      <h3 class="dialog__subtitle">Que brega, não?</h3>
-      <p class="dialog__text">
-        Antes de você falar: "nossa, Caio, não precisava me pedir em namoro de
-        novo", vamos fazer um "tour"?
-      </p>
-      <button class="dialog__button">Tá bom, tá bom...</button>
-    </div>
-    <div class="dialog__subcontent">
-      <button v-if="!showSubcontent" class="subcontent__button" @click="showSubcontent = true">
-        Ver conteúdo (Cuidado!)
-      </button>
-      <template v-else>
-        <img
-          src="../assets/img/pokeball-iamge.png"
-          alt="Pokeball Image"
-          class="subcontent__image"
-        />
-        <p class="subcontent__text">
-          Não sou um mestre pokémon, mas queria estar capturando seus peitos.
-          Ops, beijos...
+  <template v-if="showDialogConfirm">
+    <div class="dialog">
+      <div class="dialog__content">
+        <h2 class="dialog__title">Eba!!!</h2>
+        <h3 class="dialog__subtitle">Que brega, não?</h3>
+        <p class="dialog__text">
+          Antes de você falar: "nossa, Caio, não precisava me pedir em namoro de
+          novo", vamos fazer um "tour"?
         </p>
-        <p class="subcontent__joke">Eu sei, o pae manja muito nas cantadas.</p>
-        <p class="subcontent__observation">
-          * Errei sem querer. O orçamento para arrumar o HTML estava curto.
-        </p>
-      </template>
+        <button class="dialog__button" @click="$router.push('message')">Tá bom, tá bom...</button>
+      </div>
+      <div class="dialog__subcontent">
+        <button
+          v-if="!showSubcontent"
+          class="subcontent__button"
+          @click="showSubcontent = true"
+        >
+          Ver conteúdo (Cuidado!)
+        </button>
+        <template v-else>
+          <img
+            src="../assets/img/pokeball-iamge.png"
+            alt="Pokeball Image"
+            class="subcontent__image"
+          />
+          <p class="subcontent__text">
+            Não sou um mestre pokémon, mas queria estar capturando seus peitos.
+            Ops, beijos...
+          </p>
+          <p class="subcontent__joke">
+            Eu sei, o pae manja muito nas cantadas.
+          </p>
+          <p class="subcontent__observation">
+            * Errei sem querer. O orçamento para arrumar o HTML estava curto.
+          </p>
+        </template>
+      </div>
     </div>
-  </div>
-  <div v-if="showDialogConfirm" class="dialog__background" @click="showDialogConfirm = false"></div>
+    <div
+      v-if="showDialogConfirm"
+      class="dialog__background"
+      @click="showDialogConfirm = false"
+    ></div>
+  </template>
+  <template v-if="showDialogDeny && clickCount === 3">
+    <div class="dialog-deny">
+      <div class="dialog__content-deny">
+        <h2 class="dialog__title">Ops!!!</h2>
+        <h3 class="dialog__subtitle">Clicou errado, não?</h3>
+        <p class="dialog__text">
+          Todos cometemos erros. Acredito que você leu errado, hein. Ai, ai, ai,
+          minha crazy perfect.
+        </p>
+        <button class="dialog__button" @click="showDialogDeny = false">
+          Vou clicar certo...
+        </button>
+      </div>
+    </div>
+    <div
+      v-if="showDialogDeny"
+      class="dialog__background"
+      @click="showDialogDeny = false"
+    ></div>
+  </template>
+  <template v-if="showDialogDeny && clickCount === 2">
+    <div class="dialog-deny">
+      <div class="dialog__content-deny">
+        <h2 class="dialog__title">Alo???</h2>
+        <h3 class="dialog__subtitle">Terra chamando Bi</h3>
+        <p class="dialog__text">
+          Está tudo OK com a sua visão? Gente, segunda vez que você clica no
+          "NÃO". Clique certo, viu. O botão correto fica do lado que não tem
+          cachorro.
+        </p>
+        <button class="dialog__button" @click="showDialogDeny = false">
+          Agora entendi. Lado que não tem cachorro
+        </button>
+      </div>
+    </div>
+    <div
+      v-if="showDialogDeny"
+      class="dialog__background"
+      @click="showDialogDeny = false"
+    ></div>
+  </template>
+  <template v-if="showDialogDeny && clickCount === 1">
+    <div class="dialog-deny">
+      <div class="dialog__content-deny">
+        <h2 class="dialog__title">??????</h2>
+        <h3 class="dialog__subtitle">Você quer recusar?</h3>
+        <p class="dialog__text">
+          Você clicou no "NÃO". Repito: "NÃO" pela terceira vez! Acredito que a
+          gostosura está afetando o seu cérebro. Clique certoooo. Lado D I R E I
+          T O.
+        </p>
+        <button class="dialog__button" @click="showDialogDeny = false">
+          OK. Minha gostosura afetou o cérebro
+        </button>
+      </div>
+    </div>
+    <div
+      v-if="showDialogDeny"
+      class="dialog__background"
+      @click="showDialogDeny = false"
+    ></div>
+  </template>
 </template>
 
 <script>
@@ -60,7 +134,8 @@ export default {
   data() {
     return {
       showYesButton: false,
-      clickCount: 3,
+      clickCount: 4,
+      showDialogDeny: false,
       showDialogConfirm: false,
       showSubcontent: false,
     };
@@ -68,9 +143,10 @@ export default {
   methods: {
     handleDenyClick() {
       --this.clickCount;
-      if (this.clickCount === 0) {
+      if (this.clickCount === 1) {
         this.showYesButton = true;
       }
+      this.showDialogDeny = true;
     },
   },
 };

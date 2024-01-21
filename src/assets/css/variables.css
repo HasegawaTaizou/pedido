@@ -1,4 +1,6 @@
 :root {
     --white-color: #ffffff;
     --black-color: #000000;
+    --card-border-radius: 8px;
+    --button-border-width: 2px;
 }
