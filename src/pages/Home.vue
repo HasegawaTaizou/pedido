@@ -64,7 +64,7 @@
       @click="showDialogConfirm = false"
     ></div>
   </template>
-  <template v-if="showDialogDeny && clickCount === 3">
+  <template v-if="showDialogDeny && clickCount === 4">
     <div class="dialog-deny">
       <div class="dialog__content-deny">
         <h2 class="dialog__title">Ops!!!</h2>
@@ -84,7 +84,7 @@
       @click="showDialogDeny = false"
     ></div>
   </template>
-  <template v-if="showDialogDeny && clickCount === 2">
+  <template v-if="showDialogDeny && clickCount === 3">
     <div class="dialog-deny">
       <div class="dialog__content-deny">
         <h2 class="dialog__title">Alo???</h2>
@@ -105,7 +105,7 @@
       @click="showDialogDeny = false"
     ></div>
   </template>
-  <template v-if="showDialogDeny && clickCount === 1">
+  <template v-if="showDialogDeny && clickCount === 2">
     <div class="dialog-deny">
       <div class="dialog__content-deny">
         <h2 class="dialog__title">??????</h2>
@@ -126,6 +126,25 @@
       @click="showDialogDeny = false"
     ></div>
   </template>
+  <template v-if="showDialogDeny && clickCount === 1">
+    <div class="dialog-deny">
+      <div class="dialog__content-deny">
+        <h2 class="dialog__title">Eita...</h2>
+        <h3 class="dialog__subtitle">Agora foi erro meu...</h3>
+        <p class="dialog__text">
+          Todos cometemos erros. Eu disse o lado direito mas você não sabe diferenciar. Mais fácil: Lado que está escrito “Sim”.
+        </p>
+        <button class="dialog__button" @click="showDialogDeny = false">
+          Entendi, meu amor
+        </button>
+      </div>
+    </div>
+    <div
+      v-if="showDialogDeny"
+      class="dialog__background"
+      @click="showDialogDeny = false"
+    ></div>
+  </template>
 </template>
 
 <script>
@@ -134,7 +153,7 @@ export default {
   data() {
     return {
       showYesButton: false,
-      clickCount: 4,
+      clickCount: 5,
       showDialogDeny: false,
       showDialogConfirm: false,
       showSubcontent: false,
