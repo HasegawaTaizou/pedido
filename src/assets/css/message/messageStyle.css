@@ -4,10 +4,11 @@ main {
   background-position: center;
   background-repeat: repeat;
   padding: 26px 76px;
-  min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   color: var(--white-color);
+  overflow-y: scroll;
 }
 
 .message__title {

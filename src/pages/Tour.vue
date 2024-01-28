@@ -3,7 +3,7 @@
     <div class="tour__year-container">
       <h2 class="year__title">2023</h2>
       <ol class="year__events">
-        <li class="event">
+        <li class="event" v-for="index in 4" :key="index">
           <div class="event__content">
             <span class="event__title"
               >Lorem ipsum dolor sit amet consectetur</span
@@ -13,7 +13,7 @@
               <span class="place__title">Local:</span>
               <p class="place__text">Lorem ipsum dolor sit amet</p>
             </div>
-            <div class="event__context-container">
+            <div class="event__context-container container">
               <span class="context__title">Contexto:</span>
               <p class="context__text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
@@ -29,6 +29,7 @@
             <span class="photo__subtitle">Apenas recordações em memória...</span>
             <img src="../assets/img/tour-no-photo-image.png" alt="Photo Image" class="photo__image">
           </div>
+          <div class="event__bar"></div>
         </li>
       </ol>
     </div>
