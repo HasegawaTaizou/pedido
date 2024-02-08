@@ -25,11 +25,10 @@ main {
 }
 
 .year__title {
-  font-size: 3rem;
+  font-size: 5rem;
 }
 
 .event {
-  width: 428px;
   display: grid;
   grid-template-areas:
     "content photo"
@@ -40,17 +39,21 @@ main {
 
 .event__content {
   grid-area: content;
-  height: 222px;
-  display: flex;
-  flex-direction: column;
-  font-size: 0.75rem;
+  height: 332px;
+  display: grid;
+  grid-template-areas:
+    "title date"
+    "place place"
+    "context context";
+  grid-template-rows: minmax(110px, auto) auto auto;
+  grid-template-columns: 1fr auto;
   padding: 12px;
   background-image: url("../../img/tour-white-background-image.png");
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
   overflow-y: hidden;
-  transition: height .5s;
+  transition: height 0.5s;
 }
 
 .event__content:hover {
@@ -58,23 +61,42 @@ main {
 }
 
 .event__title {
-  font-size: 1.25rem;
+  grid-area: title;
+  font-size: 2.25rem;
+  line-height: 1.125;
 }
 
 .event__date {
+  grid-area: date;
   text-align: end;
-  margin-bottom: 12px;
+  font-size: 1.5rem;
+  margin-top: 4px;
 }
 
 .event__place-container {
+  grid-area: place;
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 1.5rem;
+}
+
+.place__title {
+  font-size: 1.75rem;
+}
+
+.event__context-container {
+  grid-area: context;
+  font-size: 1.5rem;
+}
+
+.context__title {
+  font-size: 1.75rem;
 }
 
 .context__text {
   overflow-y: scroll;
-  max-height: 68px;
+  max-height: 122px;
 }
 
 .context__text::-webkit-scrollbar {
@@ -87,7 +109,7 @@ main {
 
 .event__photo {
   grid-area: photo;
-  height: 222px;
+  height: 332px;
   max-width: 600px;
   display: flex;
   flex-direction: column;
@@ -98,7 +120,7 @@ main {
   background-position: center;
   background-repeat: repeat;
   overflow: hidden;
-  transition: max-width .5s, height .5s, padding .5s;
+  transition: max-width 0.5s, height 0.5s, padding 0.5s;
 }
 
 .event__photo:hover {
@@ -106,17 +128,20 @@ main {
 }
 
 .photo__title {
-  font-size: 1.5rem;
+  font-size: 3rem;
   line-height: 1;
+  margin-left: 8px;
 }
 
 .photo__subtitle {
+  font-size: 2rem;
   margin-top: 8px;
+  margin-left: 8px;
 }
 
 .photo__image {
   margin-top: 24px;
-  width: 128px;
+  width: 198px;
   display: flex;
   align-self: center;
 }
@@ -135,7 +160,7 @@ main {
 }
 
 .event-content-hidden {
-  height: 100px;
+  height: 110px;
 }
 
 .event-photo-hidden {
