@@ -3,31 +3,44 @@
     <div class="tour__year-container">
       <h2 class="year__title">2023</h2>
       <ol class="year__events">
-        <li class="event" v-for="index in 4" :key="index">
-          <div class="event__content">
-            <span class="event__title"
-              >Lorem ipsum dolor sit amet consectetur</span
-            >
-            <span class="event__date">06/09/2023</span>
+        <li
+          class="event"
+          v-for="(event, index) in events.events"
+          :key="index"
+          @click="handleEventClick(index)"
+        >
+          <div
+            class="event__content"
+            :class="{
+              'event-content-hidden': showEvent && index == selectedIndex,
+            }"
+          >
+            <span class="event__title">{{ event.title }}</span>
+            <span class="event__date">{{ event.date }}</span>
             <div class="event__place-container">
               <span class="place__title">Local:</span>
-              <p class="place__text">Lorem ipsum dolor sit amet</p>
+              <p class="place__text">{{ event.place }}</p>
             </div>
             <div class="event__context-container container">
               <span class="context__title">Contexto:</span>
               <p class="context__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                lobortis justo non sapien lobortis, quis bibendum eros
-                scelerisque. Fusce molestie pellentesque mauris, non dictum
-                magna condimentum quis. Maecenas id nibh lacinia, laoreet sapien
-                ut, convallis elit.
+                {{ event.context }}
               </p>
             </div>
           </div>
-          <div class="event__photo">
+          <div
+            class="event__photo"
+            :class="{ 'event-photo-hidden': showEvent && index == selectedIndex }"
+          >
             <span class="photo__title">Nenhuma foto</span>
-            <span class="photo__subtitle">Apenas recordações em memória...</span>
-            <img src="../assets/img/tour-no-photo-image.png" alt="Photo Image" class="photo__image">
+            <span class="photo__subtitle"
+              >Apenas recordações em memória...</span
+            >
+            <img
+              src="../assets/img/tour-no-photo-image.png"
+              alt="Photo Image"
+              class="photo__image"
+            />
           </div>
           <div class="event__bar"></div>
         </li>
@@ -44,10 +57,18 @@ export default {
   data() {
     return {
       events: events,
+      showEvent: false,
+      selectedIndex: 0,
     };
   },
-  mounted() {
-    console.log(events);
+  methods: {
+    handleEventClick(index) {
+      if(this.selectedIndex != index) {
+        this.showEvent = false;
+      }
+      this.selectedIndex = index;
+      this.showEvent = !this.showEvent;
+    },
   },
 };
 </script>
