@@ -2,7 +2,7 @@
   <transition name="fade" appear>
     <main>
       <div
-        v-for="(event, index) in events.events"
+        v-for="(event, index) in events"
         :key="index"
         class="tour__year-container"
       >
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import events from "../assets/json/events.json";
+import events from "../assets/json/events"
 
 export default {
   name: "Tour",
@@ -30,6 +30,10 @@ export default {
       events: events,
     };
   },
+  mounted() {
+    console.log(events);
+    
+  }
 };
 </script>
 
