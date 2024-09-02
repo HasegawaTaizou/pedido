@@ -1,7 +1,7 @@
 <template>
   <transition name="fade" appear>
     <main>
-      <h1 class="message__title">Opa, interrompendo o tour...</h1>
+      <h1 class="message__title">Ops, interrompendo o tour...</h1>
       <h2 class="message__subtitle">
         Antes de irmos para o nosso tour, gostaria de dizer algumas palavras
         para você, meu amor.
@@ -28,11 +28,14 @@
           pessoa na qual eu mais confio e já amei. Você me deu uma nova forma de
           enxergar o mundo. Você tem todas as qualidades possíveis em um ser
           humano: linda e gostosa (kkkkkk brincadeira, não é só isso.). Você é
-          uma pessoa muito boazinha, inteligente, amo seu jeito, o como você
-          fica feliz com os seus gostos, o jeito que você não gosta de falar
-          palavrão, etc, etc... Não irei ficar listando aqui tudo o que você
-          tem, senão o texto fica muito mais maçante e acredito que você também
-          não gosta muito de elogios dessa forma.
+          uma pessoa muito boazinha, inteligente, o como você fica feliz com os
+          seus gostos, como você se importa comigo, também te acho uma pessoa
+          muito matura, mas ao mesmo tempo muito divertida e engraçada, leve,
+          que sabe como me deixar contente, uma pessoa que sempre esteve comigo
+          muito antes de namorarmos, etc, etc... Não irei ficar listando aqui
+          tudo o que você tem, senão o texto fica muito mais maçante e acredito
+          que você também não gosta muito de elogios dessa forma. Resumidamente:
+          você é perfeita!
         </p>
         <p class="message__text">
           Temos muitas coisas em comum, mas também muitas coisas no qual não
@@ -56,13 +59,16 @@
           por você.
         </p>
         <p class="message__text">
-          Antes disso, na verdade, o que seria o "tour"? Ele basicamente é um
-          compilado do que consegui juntar de todos os nossos momentos juntos.
-          Obviamente não estão todos aí, mas foram os que eu consegui achar.
+          Antes disso, na verdade, o que seria o "tour"? Basicamente é uma
+          coletânea de todos os nossos momentos, sejam felizes ou tristes.
+          Tentei juntar ao máximo tudo o que aconteceu, mas com certeza faltam
+          muitas coisas. É uma forma de demonstrar o quão importante você é para
+          mim. Todos momentos com você são incríveis. Espero que se divirta (e
+          não me ache estranho. Não foi o meu objetivo...)
         </p>
       </div>
       <button class="message__button" @click="$router.push('/tour')">
-        Ok, li tudo (Finalmente)
+        Uuufa!!! Finalmente terminou o textão...
       </button>
     </main>
   </transition>

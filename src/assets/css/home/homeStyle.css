@@ -50,6 +50,7 @@ main {
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
   border-radius: var(--card-border-radius);
   width: 60vw;
+  transition: opacity 0.5s;
 }
 
 .dialog__content-deny {
@@ -147,15 +148,24 @@ main {
   color: var(--black-color);
 }
 
+.subcontent-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  height: 100%;
+}
+
 .subcontent__image {
-  margin-top: 12px;
+  height: 72px;
+  width: 72px;
+  display: flex;
+  justify-self: center;
+  margin-top: 18px;
 }
 
 .subcontent__text {
   font-size: 2rem;
   text-align: center;
-  flex-grow: 1;
-  margin-top: 28px;
+  margin-top: 20px;
 }
 
 .subcontent__joke {
@@ -179,5 +189,4 @@ main {
   background-color: rgba(255, 255, 255, 0);
   backdrop-filter: blur(8px);
   z-index: 1;
-  transition: opacity 0.5s;
 }
