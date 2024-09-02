@@ -72,6 +72,7 @@ main {
   width: 80vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  transition: opacity 0.5s;
 }
 
 .dialog__content {
@@ -178,4 +179,5 @@ main {
   background-color: rgba(255, 255, 255, 0);
   backdrop-filter: blur(8px);
   z-index: 1;
+  transition: opacity 0.5s;
 }

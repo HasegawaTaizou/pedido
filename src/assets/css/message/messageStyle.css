@@ -23,6 +23,31 @@ main {
   margin-bottom: 42px;
 }
 
+.message__texts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .message__text {
     font-size: 1.5rem;
+}
+
+.message__button {
+  margin: 42px 0px;
+  background-color: transparent;
+  border: var(--button-border-width) solid var(--white-color);
+  color: var(--white-color);
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-grow: 1;
+  transition: background-color 0.5s, border 0.5s, color 0.5s;
+  padding: 12px 0px;
+}
+
+.message__button:hover {
+  cursor: pointer;
+  background-color: var(--white-color);
+  border: var(--button-border-width) solid transparent;
+  color: var(--black-color);
 }
