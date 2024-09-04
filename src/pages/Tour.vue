@@ -30,10 +30,6 @@ export default {
       events: events,
     };
   },
-  mounted() {
-    console.log(events);
-    
-  }
 };
 </script>
 
